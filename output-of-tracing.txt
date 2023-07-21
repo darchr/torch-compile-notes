@@ -1,0 +1,24 @@
+/home/lyy/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:135: UserWarning: Using 'weights' as positional parameter(s) is deprecated since 0.13 and may be removed in the future. Please use keyword parameter(s) instead.
+  warnings.warn(
+/home/lyy/.local/lib/python3.8/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Loss i1, 100|(epoch, minibatch):  4265.032555141449
+Loss i1, 200|(epoch, minibatch):  10365877.648300782
+Loss i1, 300|(epoch, minibatch):  3824734722268.1836
+Training Done
+Traceback (most recent call last):
+  File "tracing.py", line 126, in <module>
+    gm = torch.fx.symbolic_trace(segment)
+  File "/home/lyy/.local/lib/python3.8/site-packages/torch/fx/_symbolic_trace.py", line 1141, in symbolic_trace
+    graph = tracer.trace(root, concrete_args)
+  File "/home/lyy/.local/lib/python3.8/site-packages/torch/fx/_symbolic_trace.py", line 810, in trace
+    (self.create_arg(fn(*args)),),
+  File "tracing.py", line 69, in segment
+    outputs = net(inputs)
+  File "/home/lyy/.local/lib/python3.8/site-packages/torch/fx/_symbolic_trace.py", line 788, in module_call_wrapper
+    return self.call_module(mod, forward, args, kwargs)
+  File "/home/lyy/.local/lib/python3.8/site-packages/torch/fx/_symbolic_trace.py", line 473, in call_module
+    module_qualified_name = self.path_of_module(m)
+  File "/home/lyy/.local/lib/python3.8/site-packages/torch/fx/_symbolic_trace.py", line 437, in path_of_module
+    raise NameError("module is not installed as a submodule")
+NameError: module is not installed as a submodule
