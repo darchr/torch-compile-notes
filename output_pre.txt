@@ -1,0 +1,28 @@
+Proxy(size)
+Proxy(size_1)
+Proxy(size_2)
+Proxy(size_3)
+Proxy(size_4)
+Proxy(size_5)
+opcode         name     target                                                      args         kwargs
+-------------  -------  ----------------------------------------------------------  -----------  ------------------
+placeholder    x        x                                                           ()           {}
+call_module    conv1    conv1                                                       (x,)         {}
+call_function  relu     <function relu at 0x7fb3b79ff160>                           (conv1,)     {'inplace': False}
+call_module    pool     pool                                                        (relu,)      {}
+call_method    size     size                                                        (pool,)      {}
+call_module    conv2    conv2                                                       (pool,)      {}
+call_function  relu_1   <function relu at 0x7fb3b79ff160>                           (conv2,)     {'inplace': False}
+call_module    pool_1   pool                                                        (relu_1,)    {}
+call_method    size_1   size                                                        (pool_1,)    {}
+call_function  flatten  <built-in method flatten of type object at 0x7fb449b35100>  (pool_1, 1)  {}
+call_method    size_2   size                                                        (flatten,)   {}
+call_module    fc1      fc1                                                         (flatten,)   {}
+call_function  relu_2   <function relu at 0x7fb3b79ff160>                           (fc1,)       {'inplace': False}
+call_method    size_3   size                                                        (relu_2,)    {}
+call_module    fc2      fc2                                                         (relu_2,)    {}
+call_function  relu_3   <function relu at 0x7fb3b79ff160>                           (fc2,)       {'inplace': False}
+call_method    size_4   size                                                        (relu_3,)    {}
+call_module    fc3      fc3                                                         (relu_3,)    {}
+call_method    size_5   size                                                        (fc3,)       {}
+output         output   output                                                      (fc3,)       {}
