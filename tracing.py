@@ -11,23 +11,10 @@ import numpy as np
 import pickle
 from math import ceil
 
-
-# transform_train = transforms.Compose([
-#     transforms.RandomHorizontalFlip(),
-#     transforms.RandomCrop(32, padding=4),
-#     transforms.ToTensor(),
-#     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-# ])
-
-# transform_test = transforms.Compose([
-#     transforms.ToTensor(),
-#     transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-# ])
-
 # instead of using DataLoader which symbolic trace does not like, we can use other 
 # methods to load data.
 
-# train = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_train)
+train = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=transform_train)
 # trainloader = torch.utils.data.DataLoader(train, batch_size=128, shuffle=True, num_workers=2)
 # test = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=transform_test)
 # testloader = torch.utils.data.DataLoader(test, batch_size=128,shuffle=False, num_workers=2)
