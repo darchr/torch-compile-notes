@@ -1,0 +1,374 @@
+custom backend called wiht FX graph:
+opcode       name       target     args               kwargs
+-----------  ---------  ---------  -----------------  --------
+placeholder  l_stack0_  L_stack0_  ()                 {}
+call_method  float_1    float      (l_stack0_,)       {}
+call_method  to         to         (float_1, 'cuda')  {}
+output       output     output     ((to,),)           {}
+(127, 3, 32, 32)
+custom backend called wiht FX graph:
+opcode         name                                        target                                                      args                                                                             kwargs
+-------------  ------------------------------------------  ----------------------------------------------------------  -------------------------------------------------------------------------------  --------
+placeholder    l_stack0_                                   L_stack0_                                                   ()                                                                               {}
+placeholder    l_inputs_                                   L_inputs_                                                   ()                                                                               {}
+call_method    to                                          to                                                          (l_stack0_, 'cuda')                                                              {}
+call_module    g__net___conv1                              G__net___conv1                                              (l_inputs_,)                                                                     {}
+call_module    g__net___bn1                                G__net___bn1                                                (g__net___conv1,)                                                                {}
+call_module    g__net___relu                               G__net___relu                                               (g__net___bn1,)                                                                  {}
+call_module    g__net___maxpool                            G__net___maxpool                                            (g__net___relu,)                                                                 {}
+call_module    getattr_g__net___layer1___0___conv1         getattr_G__net___layer1___0___conv1                         (g__net___maxpool,)                                                              {}
+call_module    getattr_g__net___layer1___0___bn1           getattr_G__net___layer1___0___bn1                           (getattr_g__net___layer1___0___conv1,)                                           {}
+call_module    getattr_g__net___layer1___0___relu          getattr_G__net___layer1___0___relu                          (getattr_g__net___layer1___0___bn1,)                                             {}
+call_module    getattr_g__net___layer1___0___conv2         getattr_G__net___layer1___0___conv2                         (getattr_g__net___layer1___0___relu,)                                            {}
+call_module    getattr_g__net___layer1___0___bn2           getattr_G__net___layer1___0___bn2                           (getattr_g__net___layer1___0___conv2,)                                           {}
+call_module    getattr_g__net___layer1___0___relu_1        getattr_G__net___layer1___0___relu                          (getattr_g__net___layer1___0___bn2,)                                             {}
+call_module    getattr_g__net___layer1___0___conv3         getattr_G__net___layer1___0___conv3                         (getattr_g__net___layer1___0___relu_1,)                                          {}
+call_module    getattr_g__net___layer1___0___bn3           getattr_G__net___layer1___0___bn3                           (getattr_g__net___layer1___0___conv3,)                                           {}
+call_module    getattr_g__net___layer1___0___downsample_0  getattr_G__net___layer1___0___downsample_0                  (g__net___maxpool,)                                                              {}
+call_module    getattr_g__net___layer1___0___downsample_1  getattr_G__net___layer1___0___downsample_1                  (getattr_g__net___layer1___0___downsample_0,)                                    {}
+call_function  iadd                                        <built-in function iadd>                                    (getattr_g__net___layer1___0___bn3, getattr_g__net___layer1___0___downsample_1)  {}
+call_module    getattr_g__net___layer1___0___relu_2        getattr_G__net___layer1___0___relu                          (iadd,)                                                                          {}
+call_module    getattr_g__net___layer1___1___conv1         getattr_G__net___layer1___1___conv1                         (getattr_g__net___layer1___0___relu_2,)                                          {}
+call_module    getattr_g__net___layer1___1___bn1           getattr_G__net___layer1___1___bn1                           (getattr_g__net___layer1___1___conv1,)                                           {}
+call_module    getattr_g__net___layer1___1___relu          getattr_G__net___layer1___1___relu                          (getattr_g__net___layer1___1___bn1,)                                             {}
+call_module    getattr_g__net___layer1___1___conv2         getattr_G__net___layer1___1___conv2                         (getattr_g__net___layer1___1___relu,)                                            {}
+call_module    getattr_g__net___layer1___1___bn2           getattr_G__net___layer1___1___bn2                           (getattr_g__net___layer1___1___conv2,)                                           {}
+call_module    getattr_g__net___layer1___1___relu_1        getattr_G__net___layer1___1___relu                          (getattr_g__net___layer1___1___bn2,)                                             {}
+call_module    getattr_g__net___layer1___1___conv3         getattr_G__net___layer1___1___conv3                         (getattr_g__net___layer1___1___relu_1,)                                          {}
+call_module    getattr_g__net___layer1___1___bn3           getattr_G__net___layer1___1___bn3                           (getattr_g__net___layer1___1___conv3,)                                           {}
+call_function  iadd_1                                      <built-in function iadd>                                    (getattr_g__net___layer1___1___bn3, getattr_g__net___layer1___0___relu_2)        {}
+call_module    getattr_g__net___layer1___1___relu_2        getattr_G__net___layer1___1___relu                          (iadd_1,)                                                                        {}
+call_module    getattr_g__net___layer1___2___conv1         getattr_G__net___layer1___2___conv1                         (getattr_g__net___layer1___1___relu_2,)                                          {}
+call_module    getattr_g__net___layer1___2___bn1           getattr_G__net___layer1___2___bn1                           (getattr_g__net___layer1___2___conv1,)                                           {}
+call_module    getattr_g__net___layer1___2___relu          getattr_G__net___layer1___2___relu                          (getattr_g__net___layer1___2___bn1,)                                             {}
+call_module    getattr_g__net___layer1___2___conv2         getattr_G__net___layer1___2___conv2                         (getattr_g__net___layer1___2___relu,)                                            {}
+call_module    getattr_g__net___layer1___2___bn2           getattr_G__net___layer1___2___bn2                           (getattr_g__net___layer1___2___conv2,)                                           {}
+call_module    getattr_g__net___layer1___2___relu_1        getattr_G__net___layer1___2___relu                          (getattr_g__net___layer1___2___bn2,)                                             {}
+call_module    getattr_g__net___layer1___2___conv3         getattr_G__net___layer1___2___conv3                         (getattr_g__net___layer1___2___relu_1,)                                          {}
+call_module    getattr_g__net___layer1___2___bn3           getattr_G__net___layer1___2___bn3                           (getattr_g__net___layer1___2___conv3,)                                           {}
+call_function  iadd_2                                      <built-in function iadd>                                    (getattr_g__net___layer1___2___bn3, getattr_g__net___layer1___1___relu_2)        {}
+call_module    getattr_g__net___layer1___2___relu_2        getattr_G__net___layer1___2___relu                          (iadd_2,)                                                                        {}
+call_module    getattr_g__net___layer2___0___conv1         getattr_G__net___layer2___0___conv1                         (getattr_g__net___layer1___2___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___0___bn1           getattr_G__net___layer2___0___bn1                           (getattr_g__net___layer2___0___conv1,)                                           {}
+call_module    getattr_g__net___layer2___0___relu          getattr_G__net___layer2___0___relu                          (getattr_g__net___layer2___0___bn1,)                                             {}
+call_module    getattr_g__net___layer2___0___conv2         getattr_G__net___layer2___0___conv2                         (getattr_g__net___layer2___0___relu,)                                            {}
+call_module    getattr_g__net___layer2___0___bn2           getattr_G__net___layer2___0___bn2                           (getattr_g__net___layer2___0___conv2,)                                           {}
+call_module    getattr_g__net___layer2___0___relu_1        getattr_G__net___layer2___0___relu                          (getattr_g__net___layer2___0___bn2,)                                             {}
+call_module    getattr_g__net___layer2___0___conv3         getattr_G__net___layer2___0___conv3                         (getattr_g__net___layer2___0___relu_1,)                                          {}
+call_module    getattr_g__net___layer2___0___bn3           getattr_G__net___layer2___0___bn3                           (getattr_g__net___layer2___0___conv3,)                                           {}
+call_module    getattr_g__net___layer2___0___downsample_0  getattr_G__net___layer2___0___downsample_0                  (getattr_g__net___layer1___2___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___0___downsample_1  getattr_G__net___layer2___0___downsample_1                  (getattr_g__net___layer2___0___downsample_0,)                                    {}
+call_function  iadd_3                                      <built-in function iadd>                                    (getattr_g__net___layer2___0___bn3, getattr_g__net___layer2___0___downsample_1)  {}
+call_module    getattr_g__net___layer2___0___relu_2        getattr_G__net___layer2___0___relu                          (iadd_3,)                                                                        {}
+call_module    getattr_g__net___layer2___1___conv1         getattr_G__net___layer2___1___conv1                         (getattr_g__net___layer2___0___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___1___bn1           getattr_G__net___layer2___1___bn1                           (getattr_g__net___layer2___1___conv1,)                                           {}
+call_module    getattr_g__net___layer2___1___relu          getattr_G__net___layer2___1___relu                          (getattr_g__net___layer2___1___bn1,)                                             {}
+call_module    getattr_g__net___layer2___1___conv2         getattr_G__net___layer2___1___conv2                         (getattr_g__net___layer2___1___relu,)                                            {}
+call_module    getattr_g__net___layer2___1___bn2           getattr_G__net___layer2___1___bn2                           (getattr_g__net___layer2___1___conv2,)                                           {}
+call_module    getattr_g__net___layer2___1___relu_1        getattr_G__net___layer2___1___relu                          (getattr_g__net___layer2___1___bn2,)                                             {}
+call_module    getattr_g__net___layer2___1___conv3         getattr_G__net___layer2___1___conv3                         (getattr_g__net___layer2___1___relu_1,)                                          {}
+call_module    getattr_g__net___layer2___1___bn3           getattr_G__net___layer2___1___bn3                           (getattr_g__net___layer2___1___conv3,)                                           {}
+call_function  iadd_4                                      <built-in function iadd>                                    (getattr_g__net___layer2___1___bn3, getattr_g__net___layer2___0___relu_2)        {}
+call_module    getattr_g__net___layer2___1___relu_2        getattr_G__net___layer2___1___relu                          (iadd_4,)                                                                        {}
+call_module    getattr_g__net___layer2___2___conv1         getattr_G__net___layer2___2___conv1                         (getattr_g__net___layer2___1___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___2___bn1           getattr_G__net___layer2___2___bn1                           (getattr_g__net___layer2___2___conv1,)                                           {}
+call_module    getattr_g__net___layer2___2___relu          getattr_G__net___layer2___2___relu                          (getattr_g__net___layer2___2___bn1,)                                             {}
+call_module    getattr_g__net___layer2___2___conv2         getattr_G__net___layer2___2___conv2                         (getattr_g__net___layer2___2___relu,)                                            {}
+call_module    getattr_g__net___layer2___2___bn2           getattr_G__net___layer2___2___bn2                           (getattr_g__net___layer2___2___conv2,)                                           {}
+call_module    getattr_g__net___layer2___2___relu_1        getattr_G__net___layer2___2___relu                          (getattr_g__net___layer2___2___bn2,)                                             {}
+call_module    getattr_g__net___layer2___2___conv3         getattr_G__net___layer2___2___conv3                         (getattr_g__net___layer2___2___relu_1,)                                          {}
+call_module    getattr_g__net___layer2___2___bn3           getattr_G__net___layer2___2___bn3                           (getattr_g__net___layer2___2___conv3,)                                           {}
+call_function  iadd_5                                      <built-in function iadd>                                    (getattr_g__net___layer2___2___bn3, getattr_g__net___layer2___1___relu_2)        {}
+call_module    getattr_g__net___layer2___2___relu_2        getattr_G__net___layer2___2___relu                          (iadd_5,)                                                                        {}
+call_module    getattr_g__net___layer2___3___conv1         getattr_G__net___layer2___3___conv1                         (getattr_g__net___layer2___2___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___3___bn1           getattr_G__net___layer2___3___bn1                           (getattr_g__net___layer2___3___conv1,)                                           {}
+call_module    getattr_g__net___layer2___3___relu          getattr_G__net___layer2___3___relu                          (getattr_g__net___layer2___3___bn1,)                                             {}
+call_module    getattr_g__net___layer2___3___conv2         getattr_G__net___layer2___3___conv2                         (getattr_g__net___layer2___3___relu,)                                            {}
+call_module    getattr_g__net___layer2___3___bn2           getattr_G__net___layer2___3___bn2                           (getattr_g__net___layer2___3___conv2,)                                           {}
+call_module    getattr_g__net___layer2___3___relu_1        getattr_G__net___layer2___3___relu                          (getattr_g__net___layer2___3___bn2,)                                             {}
+call_module    getattr_g__net___layer2___3___conv3         getattr_G__net___layer2___3___conv3                         (getattr_g__net___layer2___3___relu_1,)                                          {}
+call_module    getattr_g__net___layer2___3___bn3           getattr_G__net___layer2___3___bn3                           (getattr_g__net___layer2___3___conv3,)                                           {}
+call_function  iadd_6                                      <built-in function iadd>                                    (getattr_g__net___layer2___3___bn3, getattr_g__net___layer2___2___relu_2)        {}
+call_module    getattr_g__net___layer2___3___relu_2        getattr_G__net___layer2___3___relu                          (iadd_6,)                                                                        {}
+call_module    getattr_g__net___layer3___0___conv1         getattr_G__net___layer3___0___conv1                         (getattr_g__net___layer2___3___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___0___bn1           getattr_G__net___layer3___0___bn1                           (getattr_g__net___layer3___0___conv1,)                                           {}
+call_module    getattr_g__net___layer3___0___relu          getattr_G__net___layer3___0___relu                          (getattr_g__net___layer3___0___bn1,)                                             {}
+call_module    getattr_g__net___layer3___0___conv2         getattr_G__net___layer3___0___conv2                         (getattr_g__net___layer3___0___relu,)                                            {}
+call_module    getattr_g__net___layer3___0___bn2           getattr_G__net___layer3___0___bn2                           (getattr_g__net___layer3___0___conv2,)                                           {}
+call_module    getattr_g__net___layer3___0___relu_1        getattr_G__net___layer3___0___relu                          (getattr_g__net___layer3___0___bn2,)                                             {}
+call_module    getattr_g__net___layer3___0___conv3         getattr_G__net___layer3___0___conv3                         (getattr_g__net___layer3___0___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___0___bn3           getattr_G__net___layer3___0___bn3                           (getattr_g__net___layer3___0___conv3,)                                           {}
+call_module    getattr_g__net___layer3___0___downsample_0  getattr_G__net___layer3___0___downsample_0                  (getattr_g__net___layer2___3___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___0___downsample_1  getattr_G__net___layer3___0___downsample_1                  (getattr_g__net___layer3___0___downsample_0,)                                    {}
+call_function  iadd_7                                      <built-in function iadd>                                    (getattr_g__net___layer3___0___bn3, getattr_g__net___layer3___0___downsample_1)  {}
+call_module    getattr_g__net___layer3___0___relu_2        getattr_G__net___layer3___0___relu                          (iadd_7,)                                                                        {}
+call_module    getattr_g__net___layer3___1___conv1         getattr_G__net___layer3___1___conv1                         (getattr_g__net___layer3___0___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___1___bn1           getattr_G__net___layer3___1___bn1                           (getattr_g__net___layer3___1___conv1,)                                           {}
+call_module    getattr_g__net___layer3___1___relu          getattr_G__net___layer3___1___relu                          (getattr_g__net___layer3___1___bn1,)                                             {}
+call_module    getattr_g__net___layer3___1___conv2         getattr_G__net___layer3___1___conv2                         (getattr_g__net___layer3___1___relu,)                                            {}
+call_module    getattr_g__net___layer3___1___bn2           getattr_G__net___layer3___1___bn2                           (getattr_g__net___layer3___1___conv2,)                                           {}
+call_module    getattr_g__net___layer3___1___relu_1        getattr_G__net___layer3___1___relu                          (getattr_g__net___layer3___1___bn2,)                                             {}
+call_module    getattr_g__net___layer3___1___conv3         getattr_G__net___layer3___1___conv3                         (getattr_g__net___layer3___1___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___1___bn3           getattr_G__net___layer3___1___bn3                           (getattr_g__net___layer3___1___conv3,)                                           {}
+call_function  iadd_8                                      <built-in function iadd>                                    (getattr_g__net___layer3___1___bn3, getattr_g__net___layer3___0___relu_2)        {}
+call_module    getattr_g__net___layer3___1___relu_2        getattr_G__net___layer3___1___relu                          (iadd_8,)                                                                        {}
+call_module    getattr_g__net___layer3___2___conv1         getattr_G__net___layer3___2___conv1                         (getattr_g__net___layer3___1___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___2___bn1           getattr_G__net___layer3___2___bn1                           (getattr_g__net___layer3___2___conv1,)                                           {}
+call_module    getattr_g__net___layer3___2___relu          getattr_G__net___layer3___2___relu                          (getattr_g__net___layer3___2___bn1,)                                             {}
+call_module    getattr_g__net___layer3___2___conv2         getattr_G__net___layer3___2___conv2                         (getattr_g__net___layer3___2___relu,)                                            {}
+call_module    getattr_g__net___layer3___2___bn2           getattr_G__net___layer3___2___bn2                           (getattr_g__net___layer3___2___conv2,)                                           {}
+call_module    getattr_g__net___layer3___2___relu_1        getattr_G__net___layer3___2___relu                          (getattr_g__net___layer3___2___bn2,)                                             {}
+call_module    getattr_g__net___layer3___2___conv3         getattr_G__net___layer3___2___conv3                         (getattr_g__net___layer3___2___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___2___bn3           getattr_G__net___layer3___2___bn3                           (getattr_g__net___layer3___2___conv3,)                                           {}
+call_function  iadd_9                                      <built-in function iadd>                                    (getattr_g__net___layer3___2___bn3, getattr_g__net___layer3___1___relu_2)        {}
+call_module    getattr_g__net___layer3___2___relu_2        getattr_G__net___layer3___2___relu                          (iadd_9,)                                                                        {}
+call_module    getattr_g__net___layer3___3___conv1         getattr_G__net___layer3___3___conv1                         (getattr_g__net___layer3___2___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___3___bn1           getattr_G__net___layer3___3___bn1                           (getattr_g__net___layer3___3___conv1,)                                           {}
+call_module    getattr_g__net___layer3___3___relu          getattr_G__net___layer3___3___relu                          (getattr_g__net___layer3___3___bn1,)                                             {}
+call_module    getattr_g__net___layer3___3___conv2         getattr_G__net___layer3___3___conv2                         (getattr_g__net___layer3___3___relu,)                                            {}
+call_module    getattr_g__net___layer3___3___bn2           getattr_G__net___layer3___3___bn2                           (getattr_g__net___layer3___3___conv2,)                                           {}
+call_module    getattr_g__net___layer3___3___relu_1        getattr_G__net___layer3___3___relu                          (getattr_g__net___layer3___3___bn2,)                                             {}
+call_module    getattr_g__net___layer3___3___conv3         getattr_G__net___layer3___3___conv3                         (getattr_g__net___layer3___3___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___3___bn3           getattr_G__net___layer3___3___bn3                           (getattr_g__net___layer3___3___conv3,)                                           {}
+call_function  iadd_10                                     <built-in function iadd>                                    (getattr_g__net___layer3___3___bn3, getattr_g__net___layer3___2___relu_2)        {}
+call_module    getattr_g__net___layer3___3___relu_2        getattr_G__net___layer3___3___relu                          (iadd_10,)                                                                       {}
+call_module    getattr_g__net___layer3___4___conv1         getattr_G__net___layer3___4___conv1                         (getattr_g__net___layer3___3___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___4___bn1           getattr_G__net___layer3___4___bn1                           (getattr_g__net___layer3___4___conv1,)                                           {}
+call_module    getattr_g__net___layer3___4___relu          getattr_G__net___layer3___4___relu                          (getattr_g__net___layer3___4___bn1,)                                             {}
+call_module    getattr_g__net___layer3___4___conv2         getattr_G__net___layer3___4___conv2                         (getattr_g__net___layer3___4___relu,)                                            {}
+call_module    getattr_g__net___layer3___4___bn2           getattr_G__net___layer3___4___bn2                           (getattr_g__net___layer3___4___conv2,)                                           {}
+call_module    getattr_g__net___layer3___4___relu_1        getattr_G__net___layer3___4___relu                          (getattr_g__net___layer3___4___bn2,)                                             {}
+call_module    getattr_g__net___layer3___4___conv3         getattr_G__net___layer3___4___conv3                         (getattr_g__net___layer3___4___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___4___bn3           getattr_G__net___layer3___4___bn3                           (getattr_g__net___layer3___4___conv3,)                                           {}
+call_function  iadd_11                                     <built-in function iadd>                                    (getattr_g__net___layer3___4___bn3, getattr_g__net___layer3___3___relu_2)        {}
+call_module    getattr_g__net___layer3___4___relu_2        getattr_G__net___layer3___4___relu                          (iadd_11,)                                                                       {}
+call_module    getattr_g__net___layer3___5___conv1         getattr_G__net___layer3___5___conv1                         (getattr_g__net___layer3___4___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___5___bn1           getattr_G__net___layer3___5___bn1                           (getattr_g__net___layer3___5___conv1,)                                           {}
+call_module    getattr_g__net___layer3___5___relu          getattr_G__net___layer3___5___relu                          (getattr_g__net___layer3___5___bn1,)                                             {}
+call_module    getattr_g__net___layer3___5___conv2         getattr_G__net___layer3___5___conv2                         (getattr_g__net___layer3___5___relu,)                                            {}
+call_module    getattr_g__net___layer3___5___bn2           getattr_G__net___layer3___5___bn2                           (getattr_g__net___layer3___5___conv2,)                                           {}
+call_module    getattr_g__net___layer3___5___relu_1        getattr_G__net___layer3___5___relu                          (getattr_g__net___layer3___5___bn2,)                                             {}
+call_module    getattr_g__net___layer3___5___conv3         getattr_G__net___layer3___5___conv3                         (getattr_g__net___layer3___5___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___5___bn3           getattr_G__net___layer3___5___bn3                           (getattr_g__net___layer3___5___conv3,)                                           {}
+call_function  iadd_12                                     <built-in function iadd>                                    (getattr_g__net___layer3___5___bn3, getattr_g__net___layer3___4___relu_2)        {}
+call_module    getattr_g__net___layer3___5___relu_2        getattr_G__net___layer3___5___relu                          (iadd_12,)                                                                       {}
+call_module    getattr_g__net___layer4___0___conv1         getattr_G__net___layer4___0___conv1                         (getattr_g__net___layer3___5___relu_2,)                                          {}
+call_module    getattr_g__net___layer4___0___bn1           getattr_G__net___layer4___0___bn1                           (getattr_g__net___layer4___0___conv1,)                                           {}
+call_module    getattr_g__net___layer4___0___relu          getattr_G__net___layer4___0___relu                          (getattr_g__net___layer4___0___bn1,)                                             {}
+call_module    getattr_g__net___layer4___0___conv2         getattr_G__net___layer4___0___conv2                         (getattr_g__net___layer4___0___relu,)                                            {}
+call_module    getattr_g__net___layer4___0___bn2           getattr_G__net___layer4___0___bn2                           (getattr_g__net___layer4___0___conv2,)                                           {}
+call_module    getattr_g__net___layer4___0___relu_1        getattr_G__net___layer4___0___relu                          (getattr_g__net___layer4___0___bn2,)                                             {}
+call_module    getattr_g__net___layer4___0___conv3         getattr_G__net___layer4___0___conv3                         (getattr_g__net___layer4___0___relu_1,)                                          {}
+call_module    getattr_g__net___layer4___0___bn3           getattr_G__net___layer4___0___bn3                           (getattr_g__net___layer4___0___conv3,)                                           {}
+call_module    getattr_g__net___layer4___0___downsample_0  getattr_G__net___layer4___0___downsample_0                  (getattr_g__net___layer3___5___relu_2,)                                          {}
+call_module    getattr_g__net___layer4___0___downsample_1  getattr_G__net___layer4___0___downsample_1                  (getattr_g__net___layer4___0___downsample_0,)                                    {}
+call_function  iadd_13                                     <built-in function iadd>                                    (getattr_g__net___layer4___0___bn3, getattr_g__net___layer4___0___downsample_1)  {}
+call_module    getattr_g__net___layer4___0___relu_2        getattr_G__net___layer4___0___relu                          (iadd_13,)                                                                       {}
+call_module    getattr_g__net___layer4___1___conv1         getattr_G__net___layer4___1___conv1                         (getattr_g__net___layer4___0___relu_2,)                                          {}
+call_module    getattr_g__net___layer4___1___bn1           getattr_G__net___layer4___1___bn1                           (getattr_g__net___layer4___1___conv1,)                                           {}
+call_module    getattr_g__net___layer4___1___relu          getattr_G__net___layer4___1___relu                          (getattr_g__net___layer4___1___bn1,)                                             {}
+call_module    getattr_g__net___layer4___1___conv2         getattr_G__net___layer4___1___conv2                         (getattr_g__net___layer4___1___relu,)                                            {}
+call_module    getattr_g__net___layer4___1___bn2           getattr_G__net___layer4___1___bn2                           (getattr_g__net___layer4___1___conv2,)                                           {}
+call_module    getattr_g__net___layer4___1___relu_1        getattr_G__net___layer4___1___relu                          (getattr_g__net___layer4___1___bn2,)                                             {}
+call_module    getattr_g__net___layer4___1___conv3         getattr_G__net___layer4___1___conv3                         (getattr_g__net___layer4___1___relu_1,)                                          {}
+call_module    getattr_g__net___layer4___1___bn3           getattr_G__net___layer4___1___bn3                           (getattr_g__net___layer4___1___conv3,)                                           {}
+call_function  iadd_14                                     <built-in function iadd>                                    (getattr_g__net___layer4___1___bn3, getattr_g__net___layer4___0___relu_2)        {}
+call_module    getattr_g__net___layer4___1___relu_2        getattr_G__net___layer4___1___relu                          (iadd_14,)                                                                       {}
+call_module    getattr_g__net___layer4___2___conv1         getattr_G__net___layer4___2___conv1                         (getattr_g__net___layer4___1___relu_2,)                                          {}
+call_module    getattr_g__net___layer4___2___bn1           getattr_G__net___layer4___2___bn1                           (getattr_g__net___layer4___2___conv1,)                                           {}
+call_module    getattr_g__net___layer4___2___relu          getattr_G__net___layer4___2___relu                          (getattr_g__net___layer4___2___bn1,)                                             {}
+call_module    getattr_g__net___layer4___2___conv2         getattr_G__net___layer4___2___conv2                         (getattr_g__net___layer4___2___relu,)                                            {}
+call_module    getattr_g__net___layer4___2___bn2           getattr_G__net___layer4___2___bn2                           (getattr_g__net___layer4___2___conv2,)                                           {}
+call_module    getattr_g__net___layer4___2___relu_1        getattr_G__net___layer4___2___relu                          (getattr_g__net___layer4___2___bn2,)                                             {}
+call_module    getattr_g__net___layer4___2___conv3         getattr_G__net___layer4___2___conv3                         (getattr_g__net___layer4___2___relu_1,)                                          {}
+call_module    getattr_g__net___layer4___2___bn3           getattr_G__net___layer4___2___bn3                           (getattr_g__net___layer4___2___conv3,)                                           {}
+call_function  iadd_15                                     <built-in function iadd>                                    (getattr_g__net___layer4___2___bn3, getattr_g__net___layer4___1___relu_2)        {}
+call_module    getattr_g__net___layer4___2___relu_2        getattr_G__net___layer4___2___relu                          (iadd_15,)                                                                       {}
+call_module    g__net___avgpool                            G__net___avgpool                                            (getattr_g__net___layer4___2___relu_2,)                                          {}
+call_function  flatten                                     <built-in method flatten of type object at 0x7fece1a83100>  (g__net___avgpool, 1)                                                            {}
+call_module    g__net___fc                                 G__net___fc                                                 (flatten,)                                                                       {}
+call_module    criterion                                   criterion                                                   (g__net___fc, to)                                                                {}
+output         output                                      output                                                      ((criterion, to),)                                                               {}
+custom backend called wiht FX graph:
+opcode         name                                        target                                                      args                                                                             kwargs
+-------------  ------------------------------------------  ----------------------------------------------------------  -------------------------------------------------------------------------------  --------
+placeholder    l_inputs_                                   L_inputs_                                                   ()                                                                               {}
+placeholder    l_labels_                                   L_labels_                                                   ()                                                                               {}
+call_module    g__net___conv1                              G__net___conv1                                              (l_inputs_,)                                                                     {}
+call_module    g__net___bn1                                G__net___bn1                                                (g__net___conv1,)                                                                {}
+call_module    g__net___relu                               G__net___relu                                               (g__net___bn1,)                                                                  {}
+call_module    g__net___maxpool                            G__net___maxpool                                            (g__net___relu,)                                                                 {}
+call_module    getattr_g__net___layer1___0___conv1         getattr_G__net___layer1___0___conv1                         (g__net___maxpool,)                                                              {}
+call_module    getattr_g__net___layer1___0___bn1           getattr_G__net___layer1___0___bn1                           (getattr_g__net___layer1___0___conv1,)                                           {}
+call_module    getattr_g__net___layer1___0___relu          getattr_G__net___layer1___0___relu                          (getattr_g__net___layer1___0___bn1,)                                             {}
+call_module    getattr_g__net___layer1___0___conv2         getattr_G__net___layer1___0___conv2                         (getattr_g__net___layer1___0___relu,)                                            {}
+call_module    getattr_g__net___layer1___0___bn2           getattr_G__net___layer1___0___bn2                           (getattr_g__net___layer1___0___conv2,)                                           {}
+call_module    getattr_g__net___layer1___0___relu_1        getattr_G__net___layer1___0___relu                          (getattr_g__net___layer1___0___bn2,)                                             {}
+call_module    getattr_g__net___layer1___0___conv3         getattr_G__net___layer1___0___conv3                         (getattr_g__net___layer1___0___relu_1,)                                          {}
+call_module    getattr_g__net___layer1___0___bn3           getattr_G__net___layer1___0___bn3                           (getattr_g__net___layer1___0___conv3,)                                           {}
+call_module    getattr_g__net___layer1___0___downsample_0  getattr_G__net___layer1___0___downsample_0                  (g__net___maxpool,)                                                              {}
+call_module    getattr_g__net___layer1___0___downsample_1  getattr_G__net___layer1___0___downsample_1                  (getattr_g__net___layer1___0___downsample_0,)                                    {}
+call_function  iadd                                        <built-in function iadd>                                    (getattr_g__net___layer1___0___bn3, getattr_g__net___layer1___0___downsample_1)  {}
+call_module    getattr_g__net___layer1___0___relu_2        getattr_G__net___layer1___0___relu                          (iadd,)                                                                          {}
+call_module    getattr_g__net___layer1___1___conv1         getattr_G__net___layer1___1___conv1                         (getattr_g__net___layer1___0___relu_2,)                                          {}
+call_module    getattr_g__net___layer1___1___bn1           getattr_G__net___layer1___1___bn1                           (getattr_g__net___layer1___1___conv1,)                                           {}
+call_module    getattr_g__net___layer1___1___relu          getattr_G__net___layer1___1___relu                          (getattr_g__net___layer1___1___bn1,)                                             {}
+call_module    getattr_g__net___layer1___1___conv2         getattr_G__net___layer1___1___conv2                         (getattr_g__net___layer1___1___relu,)                                            {}
+call_module    getattr_g__net___layer1___1___bn2           getattr_G__net___layer1___1___bn2                           (getattr_g__net___layer1___1___conv2,)                                           {}
+call_module    getattr_g__net___layer1___1___relu_1        getattr_G__net___layer1___1___relu                          (getattr_g__net___layer1___1___bn2,)                                             {}
+call_module    getattr_g__net___layer1___1___conv3         getattr_G__net___layer1___1___conv3                         (getattr_g__net___layer1___1___relu_1,)                                          {}
+call_module    getattr_g__net___layer1___1___bn3           getattr_G__net___layer1___1___bn3                           (getattr_g__net___layer1___1___conv3,)                                           {}
+call_function  iadd_1                                      <built-in function iadd>                                    (getattr_g__net___layer1___1___bn3, getattr_g__net___layer1___0___relu_2)        {}
+call_module    getattr_g__net___layer1___1___relu_2        getattr_G__net___layer1___1___relu                          (iadd_1,)                                                                        {}
+call_module    getattr_g__net___layer1___2___conv1         getattr_G__net___layer1___2___conv1                         (getattr_g__net___layer1___1___relu_2,)                                          {}
+call_module    getattr_g__net___layer1___2___bn1           getattr_G__net___layer1___2___bn1                           (getattr_g__net___layer1___2___conv1,)                                           {}
+call_module    getattr_g__net___layer1___2___relu          getattr_G__net___layer1___2___relu                          (getattr_g__net___layer1___2___bn1,)                                             {}
+call_module    getattr_g__net___layer1___2___conv2         getattr_G__net___layer1___2___conv2                         (getattr_g__net___layer1___2___relu,)                                            {}
+call_module    getattr_g__net___layer1___2___bn2           getattr_G__net___layer1___2___bn2                           (getattr_g__net___layer1___2___conv2,)                                           {}
+call_module    getattr_g__net___layer1___2___relu_1        getattr_G__net___layer1___2___relu                          (getattr_g__net___layer1___2___bn2,)                                             {}
+call_module    getattr_g__net___layer1___2___conv3         getattr_G__net___layer1___2___conv3                         (getattr_g__net___layer1___2___relu_1,)                                          {}
+call_module    getattr_g__net___layer1___2___bn3           getattr_G__net___layer1___2___bn3                           (getattr_g__net___layer1___2___conv3,)                                           {}
+call_function  iadd_2                                      <built-in function iadd>                                    (getattr_g__net___layer1___2___bn3, getattr_g__net___layer1___1___relu_2)        {}
+call_module    getattr_g__net___layer1___2___relu_2        getattr_G__net___layer1___2___relu                          (iadd_2,)                                                                        {}
+call_module    getattr_g__net___layer2___0___conv1         getattr_G__net___layer2___0___conv1                         (getattr_g__net___layer1___2___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___0___bn1           getattr_G__net___layer2___0___bn1                           (getattr_g__net___layer2___0___conv1,)                                           {}
+call_module    getattr_g__net___layer2___0___relu          getattr_G__net___layer2___0___relu                          (getattr_g__net___layer2___0___bn1,)                                             {}
+call_module    getattr_g__net___layer2___0___conv2         getattr_G__net___layer2___0___conv2                         (getattr_g__net___layer2___0___relu,)                                            {}
+call_module    getattr_g__net___layer2___0___bn2           getattr_G__net___layer2___0___bn2                           (getattr_g__net___layer2___0___conv2,)                                           {}
+call_module    getattr_g__net___layer2___0___relu_1        getattr_G__net___layer2___0___relu                          (getattr_g__net___layer2___0___bn2,)                                             {}
+call_module    getattr_g__net___layer2___0___conv3         getattr_G__net___layer2___0___conv3                         (getattr_g__net___layer2___0___relu_1,)                                          {}
+call_module    getattr_g__net___layer2___0___bn3           getattr_G__net___layer2___0___bn3                           (getattr_g__net___layer2___0___conv3,)                                           {}
+call_module    getattr_g__net___layer2___0___downsample_0  getattr_G__net___layer2___0___downsample_0                  (getattr_g__net___layer1___2___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___0___downsample_1  getattr_G__net___layer2___0___downsample_1                  (getattr_g__net___layer2___0___downsample_0,)                                    {}
+call_function  iadd_3                                      <built-in function iadd>                                    (getattr_g__net___layer2___0___bn3, getattr_g__net___layer2___0___downsample_1)  {}
+call_module    getattr_g__net___layer2___0___relu_2        getattr_G__net___layer2___0___relu                          (iadd_3,)                                                                        {}
+call_module    getattr_g__net___layer2___1___conv1         getattr_G__net___layer2___1___conv1                         (getattr_g__net___layer2___0___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___1___bn1           getattr_G__net___layer2___1___bn1                           (getattr_g__net___layer2___1___conv1,)                                           {}
+call_module    getattr_g__net___layer2___1___relu          getattr_G__net___layer2___1___relu                          (getattr_g__net___layer2___1___bn1,)                                             {}
+call_module    getattr_g__net___layer2___1___conv2         getattr_G__net___layer2___1___conv2                         (getattr_g__net___layer2___1___relu,)                                            {}
+call_module    getattr_g__net___layer2___1___bn2           getattr_G__net___layer2___1___bn2                           (getattr_g__net___layer2___1___conv2,)                                           {}
+call_module    getattr_g__net___layer2___1___relu_1        getattr_G__net___layer2___1___relu                          (getattr_g__net___layer2___1___bn2,)                                             {}
+call_module    getattr_g__net___layer2___1___conv3         getattr_G__net___layer2___1___conv3                         (getattr_g__net___layer2___1___relu_1,)                                          {}
+call_module    getattr_g__net___layer2___1___bn3           getattr_G__net___layer2___1___bn3                           (getattr_g__net___layer2___1___conv3,)                                           {}
+call_function  iadd_4                                      <built-in function iadd>                                    (getattr_g__net___layer2___1___bn3, getattr_g__net___layer2___0___relu_2)        {}
+call_module    getattr_g__net___layer2___1___relu_2        getattr_G__net___layer2___1___relu                          (iadd_4,)                                                                        {}
+call_module    getattr_g__net___layer2___2___conv1         getattr_G__net___layer2___2___conv1                         (getattr_g__net___layer2___1___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___2___bn1           getattr_G__net___layer2___2___bn1                           (getattr_g__net___layer2___2___conv1,)                                           {}
+call_module    getattr_g__net___layer2___2___relu          getattr_G__net___layer2___2___relu                          (getattr_g__net___layer2___2___bn1,)                                             {}
+call_module    getattr_g__net___layer2___2___conv2         getattr_G__net___layer2___2___conv2                         (getattr_g__net___layer2___2___relu,)                                            {}
+call_module    getattr_g__net___layer2___2___bn2           getattr_G__net___layer2___2___bn2                           (getattr_g__net___layer2___2___conv2,)                                           {}
+call_module    getattr_g__net___layer2___2___relu_1        getattr_G__net___layer2___2___relu                          (getattr_g__net___layer2___2___bn2,)                                             {}
+call_module    getattr_g__net___layer2___2___conv3         getattr_G__net___layer2___2___conv3                         (getattr_g__net___layer2___2___relu_1,)                                          {}
+call_module    getattr_g__net___layer2___2___bn3           getattr_G__net___layer2___2___bn3                           (getattr_g__net___layer2___2___conv3,)                                           {}
+call_function  iadd_5                                      <built-in function iadd>                                    (getattr_g__net___layer2___2___bn3, getattr_g__net___layer2___1___relu_2)        {}
+call_module    getattr_g__net___layer2___2___relu_2        getattr_G__net___layer2___2___relu                          (iadd_5,)                                                                        {}
+call_module    getattr_g__net___layer2___3___conv1         getattr_G__net___layer2___3___conv1                         (getattr_g__net___layer2___2___relu_2,)                                          {}
+call_module    getattr_g__net___layer2___3___bn1           getattr_G__net___layer2___3___bn1                           (getattr_g__net___layer2___3___conv1,)                                           {}
+call_module    getattr_g__net___layer2___3___relu          getattr_G__net___layer2___3___relu                          (getattr_g__net___layer2___3___bn1,)                                             {}
+call_module    getattr_g__net___layer2___3___conv2         getattr_G__net___layer2___3___conv2                         (getattr_g__net___layer2___3___relu,)                                            {}
+call_module    getattr_g__net___layer2___3___bn2           getattr_G__net___layer2___3___bn2                           (getattr_g__net___layer2___3___conv2,)                                           {}
+call_module    getattr_g__net___layer2___3___relu_1        getattr_G__net___layer2___3___relu                          (getattr_g__net___layer2___3___bn2,)                                             {}
+call_module    getattr_g__net___layer2___3___conv3         getattr_G__net___layer2___3___conv3                         (getattr_g__net___layer2___3___relu_1,)                                          {}
+call_module    getattr_g__net___layer2___3___bn3           getattr_G__net___layer2___3___bn3                           (getattr_g__net___layer2___3___conv3,)                                           {}
+call_function  iadd_6                                      <built-in function iadd>                                    (getattr_g__net___layer2___3___bn3, getattr_g__net___layer2___2___relu_2)        {}
+call_module    getattr_g__net___layer2___3___relu_2        getattr_G__net___layer2___3___relu                          (iadd_6,)                                                                        {}
+call_module    getattr_g__net___layer3___0___conv1         getattr_G__net___layer3___0___conv1                         (getattr_g__net___layer2___3___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___0___bn1           getattr_G__net___layer3___0___bn1                           (getattr_g__net___layer3___0___conv1,)                                           {}
+call_module    getattr_g__net___layer3___0___relu          getattr_G__net___layer3___0___relu                          (getattr_g__net___layer3___0___bn1,)                                             {}
+call_module    getattr_g__net___layer3___0___conv2         getattr_G__net___layer3___0___conv2                         (getattr_g__net___layer3___0___relu,)                                            {}
+call_module    getattr_g__net___layer3___0___bn2           getattr_G__net___layer3___0___bn2                           (getattr_g__net___layer3___0___conv2,)                                           {}
+call_module    getattr_g__net___layer3___0___relu_1        getattr_G__net___layer3___0___relu                          (getattr_g__net___layer3___0___bn2,)                                             {}
+call_module    getattr_g__net___layer3___0___conv3         getattr_G__net___layer3___0___conv3                         (getattr_g__net___layer3___0___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___0___bn3           getattr_G__net___layer3___0___bn3                           (getattr_g__net___layer3___0___conv3,)                                           {}
+call_module    getattr_g__net___layer3___0___downsample_0  getattr_G__net___layer3___0___downsample_0                  (getattr_g__net___layer2___3___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___0___downsample_1  getattr_G__net___layer3___0___downsample_1                  (getattr_g__net___layer3___0___downsample_0,)                                    {}
+call_function  iadd_7                                      <built-in function iadd>                                    (getattr_g__net___layer3___0___bn3, getattr_g__net___layer3___0___downsample_1)  {}
+call_module    getattr_g__net___layer3___0___relu_2        getattr_G__net___layer3___0___relu                          (iadd_7,)                                                                        {}
+call_module    getattr_g__net___layer3___1___conv1         getattr_G__net___layer3___1___conv1                         (getattr_g__net___layer3___0___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___1___bn1           getattr_G__net___layer3___1___bn1                           (getattr_g__net___layer3___1___conv1,)                                           {}
+call_module    getattr_g__net___layer3___1___relu          getattr_G__net___layer3___1___relu                          (getattr_g__net___layer3___1___bn1,)                                             {}
+call_module    getattr_g__net___layer3___1___conv2         getattr_G__net___layer3___1___conv2                         (getattr_g__net___layer3___1___relu,)                                            {}
+call_module    getattr_g__net___layer3___1___bn2           getattr_G__net___layer3___1___bn2                           (getattr_g__net___layer3___1___conv2,)                                           {}
+call_module    getattr_g__net___layer3___1___relu_1        getattr_G__net___layer3___1___relu                          (getattr_g__net___layer3___1___bn2,)                                             {}
+call_module    getattr_g__net___layer3___1___conv3         getattr_G__net___layer3___1___conv3                         (getattr_g__net___layer3___1___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___1___bn3           getattr_G__net___layer3___1___bn3                           (getattr_g__net___layer3___1___conv3,)                                           {}
+call_function  iadd_8                                      <built-in function iadd>                                    (getattr_g__net___layer3___1___bn3, getattr_g__net___layer3___0___relu_2)        {}
+call_module    getattr_g__net___layer3___1___relu_2        getattr_G__net___layer3___1___relu                          (iadd_8,)                                                                        {}
+call_module    getattr_g__net___layer3___2___conv1         getattr_G__net___layer3___2___conv1                         (getattr_g__net___layer3___1___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___2___bn1           getattr_G__net___layer3___2___bn1                           (getattr_g__net___layer3___2___conv1,)                                           {}
+call_module    getattr_g__net___layer3___2___relu          getattr_G__net___layer3___2___relu                          (getattr_g__net___layer3___2___bn1,)                                             {}
+call_module    getattr_g__net___layer3___2___conv2         getattr_G__net___layer3___2___conv2                         (getattr_g__net___layer3___2___relu,)                                            {}
+call_module    getattr_g__net___layer3___2___bn2           getattr_G__net___layer3___2___bn2                           (getattr_g__net___layer3___2___conv2,)                                           {}
+call_module    getattr_g__net___layer3___2___relu_1        getattr_G__net___layer3___2___relu                          (getattr_g__net___layer3___2___bn2,)                                             {}
+call_module    getattr_g__net___layer3___2___conv3         getattr_G__net___layer3___2___conv3                         (getattr_g__net___layer3___2___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___2___bn3           getattr_G__net___layer3___2___bn3                           (getattr_g__net___layer3___2___conv3,)                                           {}
+call_function  iadd_9                                      <built-in function iadd>                                    (getattr_g__net___layer3___2___bn3, getattr_g__net___layer3___1___relu_2)        {}
+call_module    getattr_g__net___layer3___2___relu_2        getattr_G__net___layer3___2___relu                          (iadd_9,)                                                                        {}
+call_module    getattr_g__net___layer3___3___conv1         getattr_G__net___layer3___3___conv1                         (getattr_g__net___layer3___2___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___3___bn1           getattr_G__net___layer3___3___bn1                           (getattr_g__net___layer3___3___conv1,)                                           {}
+call_module    getattr_g__net___layer3___3___relu          getattr_G__net___layer3___3___relu                          (getattr_g__net___layer3___3___bn1,)                                             {}
+call_module    getattr_g__net___layer3___3___conv2         getattr_G__net___layer3___3___conv2                         (getattr_g__net___layer3___3___relu,)                                            {}
+call_module    getattr_g__net___layer3___3___bn2           getattr_G__net___layer3___3___bn2                           (getattr_g__net___layer3___3___conv2,)                                           {}
+call_module    getattr_g__net___layer3___3___relu_1        getattr_G__net___layer3___3___relu                          (getattr_g__net___layer3___3___bn2,)                                             {}
+call_module    getattr_g__net___layer3___3___conv3         getattr_G__net___layer3___3___conv3                         (getattr_g__net___layer3___3___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___3___bn3           getattr_G__net___layer3___3___bn3                           (getattr_g__net___layer3___3___conv3,)                                           {}
+call_function  iadd_10                                     <built-in function iadd>                                    (getattr_g__net___layer3___3___bn3, getattr_g__net___layer3___2___relu_2)        {}
+call_module    getattr_g__net___layer3___3___relu_2        getattr_G__net___layer3___3___relu                          (iadd_10,)                                                                       {}
+call_module    getattr_g__net___layer3___4___conv1         getattr_G__net___layer3___4___conv1                         (getattr_g__net___layer3___3___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___4___bn1           getattr_G__net___layer3___4___bn1                           (getattr_g__net___layer3___4___conv1,)                                           {}
+call_module    getattr_g__net___layer3___4___relu          getattr_G__net___layer3___4___relu                          (getattr_g__net___layer3___4___bn1,)                                             {}
+call_module    getattr_g__net___layer3___4___conv2         getattr_G__net___layer3___4___conv2                         (getattr_g__net___layer3___4___relu,)                                            {}
+call_module    getattr_g__net___layer3___4___bn2           getattr_G__net___layer3___4___bn2                           (getattr_g__net___layer3___4___conv2,)                                           {}
+call_module    getattr_g__net___layer3___4___relu_1        getattr_G__net___layer3___4___relu                          (getattr_g__net___layer3___4___bn2,)                                             {}
+call_module    getattr_g__net___layer3___4___conv3         getattr_G__net___layer3___4___conv3                         (getattr_g__net___layer3___4___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___4___bn3           getattr_G__net___layer3___4___bn3                           (getattr_g__net___layer3___4___conv3,)                                           {}
+call_function  iadd_11                                     <built-in function iadd>                                    (getattr_g__net___layer3___4___bn3, getattr_g__net___layer3___3___relu_2)        {}
+call_module    getattr_g__net___layer3___4___relu_2        getattr_G__net___layer3___4___relu                          (iadd_11,)                                                                       {}
+call_module    getattr_g__net___layer3___5___conv1         getattr_G__net___layer3___5___conv1                         (getattr_g__net___layer3___4___relu_2,)                                          {}
+call_module    getattr_g__net___layer3___5___bn1           getattr_G__net___layer3___5___bn1                           (getattr_g__net___layer3___5___conv1,)                                           {}
+call_module    getattr_g__net___layer3___5___relu          getattr_G__net___layer3___5___relu                          (getattr_g__net___layer3___5___bn1,)                                             {}
+call_module    getattr_g__net___layer3___5___conv2         getattr_G__net___layer3___5___conv2                         (getattr_g__net___layer3___5___relu,)                                            {}
+call_module    getattr_g__net___layer3___5___bn2           getattr_G__net___layer3___5___bn2                           (getattr_g__net___layer3___5___conv2,)                                           {}
+call_module    getattr_g__net___layer3___5___relu_1        getattr_G__net___layer3___5___relu                          (getattr_g__net___layer3___5___bn2,)                                             {}
+call_module    getattr_g__net___layer3___5___conv3         getattr_G__net___layer3___5___conv3                         (getattr_g__net___layer3___5___relu_1,)                                          {}
+call_module    getattr_g__net___layer3___5___bn3           getattr_G__net___layer3___5___bn3                           (getattr_g__net___layer3___5___conv3,)                                           {}
+call_function  iadd_12                                     <built-in function iadd>                                    (getattr_g__net___layer3___5___bn3, getattr_g__net___layer3___4___relu_2)        {}
+call_module    getattr_g__net___layer3___5___relu_2        getattr_G__net___layer3___5___relu                          (iadd_12,)                                                                       {}
+call_module    getattr_g__net___layer4___0___conv1         getattr_G__net___layer4___0___conv1                         (getattr_g__net___layer3___5___relu_2,)                                          {}
+call_module    getattr_g__net___layer4___0___bn1           getattr_G__net___layer4___0___bn1                           (getattr_g__net___layer4___0___conv1,)                                           {}
+call_module    getattr_g__net___layer4___0___relu          getattr_G__net___layer4___0___relu                          (getattr_g__net___layer4___0___bn1,)                                             {}
+call_module    getattr_g__net___layer4___0___conv2         getattr_G__net___layer4___0___conv2                         (getattr_g__net___layer4___0___relu,)                                            {}
+call_module    getattr_g__net___layer4___0___bn2           getattr_G__net___layer4___0___bn2                           (getattr_g__net___layer4___0___conv2,)                                           {}
+call_module    getattr_g__net___layer4___0___relu_1        getattr_G__net___layer4___0___relu                          (getattr_g__net___layer4___0___bn2,)                                             {}
+call_module    getattr_g__net___layer4___0___conv3         getattr_G__net___layer4___0___conv3                         (getattr_g__net___layer4___0___relu_1,)                                          {}
+call_module    getattr_g__net___layer4___0___bn3           getattr_G__net___layer4___0___bn3                           (getattr_g__net___layer4___0___conv3,)                                           {}
+call_module    getattr_g__net___layer4___0___downsample_0  getattr_G__net___layer4___0___downsample_0                  (getattr_g__net___layer3___5___relu_2,)                                          {}
+call_module    getattr_g__net___layer4___0___downsample_1  getattr_G__net___layer4___0___downsample_1                  (getattr_g__net___layer4___0___downsample_0,)                                    {}
+call_function  iadd_13                                     <built-in function iadd>                                    (getattr_g__net___layer4___0___bn3, getattr_g__net___layer4___0___downsample_1)  {}
+call_module    getattr_g__net___layer4___0___relu_2        getattr_G__net___layer4___0___relu                          (iadd_13,)                                                                       {}
+call_module    getattr_g__net___layer4___1___conv1         getattr_G__net___layer4___1___conv1                         (getattr_g__net___layer4___0___relu_2,)                                          {}
+call_module    getattr_g__net___layer4___1___bn1           getattr_G__net___layer4___1___bn1                           (getattr_g__net___layer4___1___conv1,)                                           {}
+call_module    getattr_g__net___layer4___1___relu          getattr_G__net___layer4___1___relu                          (getattr_g__net___layer4___1___bn1,)                                             {}
+call_module    getattr_g__net___layer4___1___conv2         getattr_G__net___layer4___1___conv2                         (getattr_g__net___layer4___1___relu,)                                            {}
+call_module    getattr_g__net___layer4___1___bn2           getattr_G__net___layer4___1___bn2                           (getattr_g__net___layer4___1___conv2,)                                           {}
+call_module    getattr_g__net___layer4___1___relu_1        getattr_G__net___layer4___1___relu                          (getattr_g__net___layer4___1___bn2,)                                             {}
+call_module    getattr_g__net___layer4___1___conv3         getattr_G__net___layer4___1___conv3                         (getattr_g__net___layer4___1___relu_1,)                                          {}
+call_module    getattr_g__net___layer4___1___bn3           getattr_G__net___layer4___1___bn3                           (getattr_g__net___layer4___1___conv3,)                                           {}
+call_function  iadd_14                                     <built-in function iadd>                                    (getattr_g__net___layer4___1___bn3, getattr_g__net___layer4___0___relu_2)        {}
+call_module    getattr_g__net___layer4___1___relu_2        getattr_G__net___layer4___1___relu                          (iadd_14,)                                                                       {}
+call_module    getattr_g__net___layer4___2___conv1         getattr_G__net___layer4___2___conv1                         (getattr_g__net___layer4___1___relu_2,)                                          {}
+call_module    getattr_g__net___layer4___2___bn1           getattr_G__net___layer4___2___bn1                           (getattr_g__net___layer4___2___conv1,)                                           {}
+call_module    getattr_g__net___layer4___2___relu          getattr_G__net___layer4___2___relu                          (getattr_g__net___layer4___2___bn1,)                                             {}
+call_module    getattr_g__net___layer4___2___conv2         getattr_G__net___layer4___2___conv2                         (getattr_g__net___layer4___2___relu,)                                            {}
+call_module    getattr_g__net___layer4___2___bn2           getattr_G__net___layer4___2___bn2                           (getattr_g__net___layer4___2___conv2,)                                           {}
+call_module    getattr_g__net___layer4___2___relu_1        getattr_G__net___layer4___2___relu                          (getattr_g__net___layer4___2___bn2,)                                             {}
+call_module    getattr_g__net___layer4___2___conv3         getattr_G__net___layer4___2___conv3                         (getattr_g__net___layer4___2___relu_1,)                                          {}
+call_module    getattr_g__net___layer4___2___bn3           getattr_G__net___layer4___2___bn3                           (getattr_g__net___layer4___2___conv3,)                                           {}
+call_function  iadd_15                                     <built-in function iadd>                                    (getattr_g__net___layer4___2___bn3, getattr_g__net___layer4___1___relu_2)        {}
+call_module    getattr_g__net___layer4___2___relu_2        getattr_G__net___layer4___2___relu                          (iadd_15,)                                                                       {}
+call_module    g__net___avgpool                            G__net___avgpool                                            (getattr_g__net___layer4___2___relu_2,)                                          {}
+call_function  flatten                                     <built-in method flatten of type object at 0x7fece1a83100>  (g__net___avgpool, 1)                                                            {}
+call_module    g__net___fc                                 G__net___fc                                                 (flatten,)                                                                       {}
+call_module    criterion                                   criterion                                                   (g__net___fc, l_labels_)                                                         {}
+output         output                                      output                                                      ((criterion,),)                                                                  {}
+1.5325335264205933
